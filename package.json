@@ -1,0 +1,29 @@
+{
+  "name": "swigy-clone",
+  "version": "1.0.0",
+  "description": "swiggy app clone",
+  "scripts": {
+    "test": "jest",
+    "start": "npx parcel index.html",
+    "build":"parcel build index.html"
+  },
+  "author": "deepak",
+  "license": "ISC",
+  "dependencies": {
+    "@emotion/react": "^11.11.3",
+    "@emotion/styled": "^11.11.0",
+    "@fortawesome/fontawesome-free": "^6.5.1",
+    "@mui/icons-material": "^5.14.5",
+    "@mui/material": "^5.15.5",
+    "mdb-react-ui-kit": "^7.1.0",
+    "parcel": "^2.11.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.21.2"
+  },
+  "devDependencies": {
+    "postcss": "^8.4.33",
+    "process": "^0.11.10",
+    "tailwindcss": "^3.4.1"
+  }
+}

@@ -1,0 +1,18 @@
+body {
+    font-family: Roboto, Helvetica, Arial, sans-serif;
+  }
+  @tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.active{
+  color:rgb(64, 38, 38);
+  font-weight: 600;
+}
+.text{
+  border: 2px solid rgb(39, 30, 30) !important;
+  text-align: center;
+  padding:5px;
+  border-radius: 10px;
+  margin-right: 8px;
+}
