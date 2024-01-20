@@ -42,7 +42,7 @@ const Approuter=createBrowserRouter(
           element:<Restromenupage/>
         }
       ],
-      errorElement:<Error/>
+      
     }
   ]
 )

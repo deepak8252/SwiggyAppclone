@@ -1,0 +1,10 @@
+ <Card className="p-2 m-3 w-64 flex justify-center items-center flex-col" key={item.id} >
+        <img src={img_url+item.cloudinaryImageId} alt={item.name} className="  w-64 h-40" />
+        <h5 className="p-2">{item.name}</h5>
+        <h4 className="p-2">{item.avgRatingString}<StarIcon color="primary"/></h4>
+        <div className="flex justify-between items-center">
+          <span className="p-3">{item.costForTwo}</span>
+           <span className="p-3">{item.areaName}</span>   
+        </div>
+        <Button variant="contained" color="primary" className="mb-3">view menu</Button>
+      </Card>
