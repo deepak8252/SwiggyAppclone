@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import Header from './components/Header'
 import Body from './components/Body'
 import About from "./pages/About"
@@ -11,12 +11,22 @@ import { Outlet, RouterProvider, createBrowserRouter } from 'react-router-dom';
 import Error from './pages/Error';
 import Restromenupage from './pages/Restromenupage';
 import Contact from "../src/pages/Contact"
+import Userdata from './util/Userdata';
 
 const APP = () => {
+  const [username,setusername]=useState();
+  useEffect(()=>{
+    const data={
+      username:"deepak kumar"
+    }
+  setusername(data.username)
+  },[])
   return (
     <>
+    <Userdata.Provider value={{name:username,setusername}}>
      <Header/>
     <Outlet/>
+    </Userdata.Provider>
     </>
   )
 }

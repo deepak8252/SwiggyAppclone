@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import Swiigy from "../img/swiigylogo.png"
 import {
   MDBContainer,
@@ -14,11 +14,12 @@ import {
 } from 'mdb-react-ui-kit';
 import { useonline } from './useonline';
 import { NavLink } from 'react-router-dom';
-
+import Userdata from '../util/Userdata';
 
 export default function Header() {
   const [openBasic, setOpenBasic] = useState(false);
   const online=useonline();
+  const username=useContext(Userdata)
   return (
     <MDBNavbar expand='lg' light bgColor='light'>
       <MDBContainer fluid >
@@ -54,6 +55,9 @@ export default function Header() {
             </MDBNavbarItem>
             <MDBNavbarItem>
               <MDBNavbarLink >staus:{online?"✅":"🔴"}</MDBNavbarLink>
+            </MDBNavbarItem>
+            <MDBNavbarItem>
+              <MDBNavbarLink >UserName: {username.name}</MDBNavbarLink>
             </MDBNavbarItem>
           </MDBNavbarNav>
         </MDBCollapse>

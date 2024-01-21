@@ -1,14 +1,14 @@
 
 import { Button, Card, Input } from "@mui/material";
 import {data} from "../util/Restaurant"
-import { useState ,useEffect} from 'react';
+import { useState ,useEffect, useContext} from 'react';
 import { img_url } from "../util/contant";
 import Toprated from "./Toprated";
 import { FaStar } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
+import Userdata from "../util/Userdata";
 export default function Restrocard() {
   const [restdata,setrestdata]=useState([]);
-  const [num,setnum]=useState(0)
   const [filterresdata,setfilterresdata]=useState([]);
   const [searchdata,setsearchdata]=useState();
  useEffect(()=>{
@@ -27,7 +27,8 @@ export default function Restrocard() {
   let filterData = filterresdata.filter((item) =>
   item?.name?.toLowerCase()?.includes(searchdata.toLowerCase()))
   setrestdata(filterData);
- }
+ };
+ const {setusername,name}=useContext(Userdata);
   return (
 <>
 <div className="flex justify-between items-center p-3 flex-wrap gap-3">
@@ -36,6 +37,10 @@ export default function Restrocard() {
 <input type="text" placeholder="enter your name" className=" text  border-collapse"  value={searchdata} onChange={changehandle}/>
 <Button variant="contained" color="success" onClick={searchrest}  >search restaurant</Button>
 </div>
+<label> USERNAME:</label>
+<input type="text" className="text border-collapse" onChange={(e)=>{
+setusername(e.target.value);
+}}  value={name} />
 </div>
 <div className="flex flex-wrap justify-center items-center">
   
