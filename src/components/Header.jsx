@@ -15,11 +15,15 @@ import {
 import { useonline } from './useonline';
 import { NavLink } from 'react-router-dom';
 import Userdata from '../util/Userdata';
+import { useSelector } from 'react-redux';
+import { additem } from '../util/cartSlice';
 
 export default function Header() {
   const [openBasic, setOpenBasic] = useState(false);
   const online=useonline();
-  const username=useContext(Userdata)
+  const username=useContext(Userdata);
+  const cartItems=useSelector((store)=>store.cart.items);
+ 
   return (
     <MDBNavbar expand='lg' light bgColor='light'>
       <MDBContainer fluid >
@@ -51,7 +55,7 @@ export default function Header() {
               </MDBNavbarLink>
             </MDBNavbarItem>
             <MDBNavbarItem>
-              <MDBNavbarLink >cart</MDBNavbarLink>
+              <MDBNavbarLink ><NavLink to='/cart'>cart {cartItems.length} </NavLink></MDBNavbarLink>
             </MDBNavbarItem>
             <MDBNavbarItem>
               <MDBNavbarLink >staus:{online?"✅":"🔴"}</MDBNavbarLink>

@@ -12,7 +12,9 @@ import Error from './pages/Error';
 import Restromenupage from './pages/Restromenupage';
 import Contact from "../src/pages/Contact"
 import Userdata from './util/Userdata';
-
+import { Provider } from 'react-redux';
+import appStore from './util/appStore';
+import Cart from './components/Cart';
 const APP = () => {
   const [username,setusername]=useState();
   useEffect(()=>{
@@ -23,10 +25,12 @@ const APP = () => {
   },[])
   return (
     <>
-    <Userdata.Provider value={{name:username,setusername}}>
+   <Provider store={appStore}>
+   <Userdata.Provider value={{name:username,setusername}}>
      <Header/>
     <Outlet/>
     </Userdata.Provider>
+   </Provider>
     </>
   )
 }
@@ -50,6 +54,9 @@ const Approuter=createBrowserRouter(
         {
           path:'/restmenu/:resid',
           element:<Restromenupage/>
+        },{
+          path:"/cart",
+          element:<Cart/>
         }
       ],
       

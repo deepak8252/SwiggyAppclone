@@ -1,11 +1,16 @@
 import React from "react";
 import { img_url } from "../util/contant";
 import { Button } from "@mui/material";
+import { useDispatch } from "react-redux";
+import { additem } from "../util/cartSlice";
 const Itemsmenu = ({ items }) => {
-  console.log(items);
+const cartitems=useDispatch((store)=>store.cart.items);
+const handleadd=(item)=>{
+  cartitems(additem(item));
+}
   return (
     <div>
-      {items.map((item) => (
+      { items && items.map((item) => (
         <div
           key={item.card.info.id}
           className=" flex p-2 m-2 border-b-2 text-left flex-wrap"
@@ -22,7 +27,7 @@ const Itemsmenu = ({ items }) => {
           </div>
           <div className=" 3/12 p-3">
            <div className=" absolute">
-           <Button variant="contained" color="primary" className="mb-3" >Add to cart</Button>
+           <Button variant="contained" color="primary" className="mb-3" onClick={()=>handleadd(item)} >Add to cart</Button>
            </div>
             <img
               src={img_url + item.card.info.imageId}
