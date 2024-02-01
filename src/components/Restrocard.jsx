@@ -1,5 +1,5 @@
 
-import { Button, Card } from "@mui/material";
+import { Button, Card, Grid } from "@mui/material";
 import {data} from "../util/Restaurant"
 import { useState ,useEffect, useContext} from 'react';
 import { img_url } from "../util/contant";
@@ -31,17 +31,25 @@ export default function Restrocard() {
  const {setusername,name}=useContext(Userdata);
   return (
 <>
-<div className="flex justify-between items-center p-3 flex-wrap gap-3">
+<Grid container spacing={2}>
+  <div className="flex justify-between items-center mt-5 mx-auto p-3 flex-wrap gap-3">
 <Toprated data={handletoprated}/>
 <div>
+
 <input type="text" placeholder="enter your name" className=" text  border-collapse"  value={searchdata} onChange={changehandle}/>
+
 <Button variant="contained" color="success" onClick={searchrest}  >search restaurant</Button>
+
 </div>
+
 <label> USERNAME:</label>
 <input type="text" className="text border-collapse" onChange={(e)=>{
 setusername(e.target.value);
 }}  value={name} />
+
 </div>
+</Grid>
+
 <div className="flex flex-wrap justify-center items-center">
   
  {

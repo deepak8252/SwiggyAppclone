@@ -10,12 +10,8 @@ const Delhirest = () => {
      fetchdata();
     },[]);
     const fetchdata=async()=>{
-  // const data=await fetch("https://www.swiggy.com/mapi/homepage/getCards?lat=28.65420&lng=77.23730");
-  // const result=await data.json();
-  console.log(data,"delhi");
 const restdata=data?.data?.success?.cards[4]?.gridWidget?.gridElements?.infoWithStyle?.restaurants ;
 setdelhirest(restdata);
-console.log(restdata)
     }
    
   return (

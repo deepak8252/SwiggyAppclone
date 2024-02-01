@@ -1,8 +1,7 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import Itemsmenu from './Itemsmenu';
 import { Removecard, clearCart } from '../util/cartSlice';
-
+import Removeitems from "../components/Removeitems"
 
 const Cart = () => {
     const cartitems=useSelector((store)=>store.cart.items);
@@ -15,7 +14,7 @@ const Cart = () => {
     <div className='w-9/12 mx-auto'>
           <h2 className='text-center'>cart page</h2>
           <button onClick={clearcart} className='bg-black border-black text-white'>clear cart</button>
-          <Itemsmenu items={cartitems} />
+          <Removeitems items={cartitems}/>
     </div>
   )
 }
